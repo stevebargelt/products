@@ -4,7 +4,7 @@ node ('aspdotnetcore_products') {
 	stage('Build') {    
 		git url: 'https://github.com/stevebargelt/products'
 		sh 'dotnet restore'
-		sh 'dotnet test test/products.Tests/project.json'
+		sh 'dotnet test test/products.tests/project.json'
 	}
 	stage('Publish') {
 		sh 'dotnet publish src/products/project.json -c release -o $(pwd)/publish/'
