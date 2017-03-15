@@ -11,7 +11,7 @@ namespace products.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "product1", "product2", "product3" };
+            return new string[] { "product1", "product2", "product3", "product4", "product5" };
         }
 
         // GET v1/products/1

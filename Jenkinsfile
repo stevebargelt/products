@@ -8,7 +8,7 @@ node ('aspdotnetcore_products') {
 	}
 	stage('Publish') {
 		sh 'dotnet publish src/products/project.json -c release -o $(pwd)/publish/'
-		echo "Building: ${env.BUILD_TAG} || Build Number: ${env.BUILD_NUMBER}"
+		echo "Publishing: ${env.BUILD_TAG} || Build Number: ${env.BUILD_NUMBER}"
 		sh "docker build -t abs-registry.harebrained-apps.com/products:${env.BUILD_NUMBER} publish"
 		withCredentials([usernamePassword(credentialsId: 'absadmin', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USER')]) {
 			sh "docker login abs-registry.harebrained-apps.com -u='${REGISTRY_USER}' -p='${REGISTRY_PASSWORD}'"
