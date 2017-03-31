@@ -1,5 +1,7 @@
 FROM microsoft/aspnetcore-build:1.1.0-projectjson
 
+ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE 1
+
 #####
 # START OF FROM openjdk:8-jdk
 #####  
@@ -26,12 +28,11 @@ RUN { \
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
-ENV JAVA_VERSION 8u111
-ENV JAVA_DEBIAN_VERSION 8u111-b14-2~bpo8+1
-
+ENV JAVA_VERSION 8u121
+ENV JAVA_DEBIAN_VERSION 8u121-b13-1~bpo8+1
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
-ENV CA_CERTIFICATES_JAVA_VERSION 20140324
+ENV CA_CERTIFICATES_JAVA_VERSION 20161107~bpo8+1
 
 RUN set -x \
 	&& apt-get update \
